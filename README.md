@@ -4,20 +4,24 @@
 This system allows:
 Users → Check available cars & request booking
 Admin → Add cars, approve/reject requests
+
 🧩 2. Modules
 👤 User
 Register / Login
 View available cars
 Send rental request
 View booking status
+
 🛠️ Admin
 Add / update cars
 View requests
 Approve / reject booking
+
 🗂️ 3. Technologies
 Frontend: HTML, CSS
 Backend: Python (Flask)
 Database: MySQL / SQLite
+
 🧱 4. Project Structure
 Copy code
 
@@ -34,16 +38,20 @@ car_rental/
 │
 ├── static/
 │   └── style.css
+
 💻 5. Backend Code
 from flask import Flask, render_template, request, redirect
 import sqlite3
 
+
 app = Flask(__name__)
 
 # Home page
+
 @app.route('/')
 def home():
     return render_template('index.html')
+
 
 # View cars
 @app.route('/cars')
@@ -56,6 +64,7 @@ def cars():
     return render_template('cars.html', cars=cars)
 
 # Booking request
+
 @app.route('/book', methods=['POST'])
 def book():
     car_id = request.form['car_id']
@@ -72,6 +81,7 @@ def book():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 🗄️ 6. Database (SQLite)
 CREATE TABLE cars (
     id INTEGER PRIMARY KEY,
@@ -86,6 +96,8 @@ CREATE TABLE bookings (
     car_id INTEGER,
     status TEXT
 );
+
+
 🌐 7. Frontend 
 <h2>Available Cars</h2>
 
@@ -101,6 +113,7 @@ CREATE TABLE bookings (
     </form>
   </div>
 {% endfor %}
+
 🚀 8. Features You Can Add (For More Marks)
 Login system (user & admin)
 Car images
@@ -108,6 +121,8 @@ Booking history
 Payment integration
 Email confirmation
 Search & filter cars
+
+
 📊 9. ER Diagram (Text Idea)
 Entities:
 User (user_id, name, email)
@@ -116,6 +131,8 @@ Booking (booking_id, user_id, car_id, status)
 Relations:
 User → Booking (1:M)
 Car → Booking (1:M)
+
+
 
 🔥 10. How to Run
 Bash
